@@ -1,9 +1,26 @@
 (in-package :cl-user)
 (defpackage trivial-exe
 	(:use :cl)
-	(:export :executable-pathname
-				:ensure-executable))
+	(:export
+		:strip-extension
+		:get-directory
+		:executable-pathname
+		:ensure-executable))
 (in-package :trivial-exe)
+
+(defun strip-extension (path-name)
+	(make-pathname :host (pathname-host path-name)
+						:device  (pathname-device path-name)
+						:directory (pathname-directory path-name)
+						:name (pathname-name path-name)))
+
+
+
+(defun get-directory (path-name)
+	(make-pathname :host (pathname-host path-name)
+						:device  (pathname-device path-name)
+						:directory (pathname-directory path-name)))
+
 
 (defun executable-pathname ()
 	"Return the absolute pathname to the running executable."
