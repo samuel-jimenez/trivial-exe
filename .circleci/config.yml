@@ -57,7 +57,7 @@ jobs:
           name: install testing framework
           command: |
             ros install cl-coveralls
-            ros install osicat
+            ros install trivial-exe-test
 #Project Settings>Environment Variables>COVERALLS_REPO_TOKEN
 
       - run:
@@ -114,7 +114,7 @@ jobs:
       - run:
           name: install testing framework
           command: |
-            ros install fiveam
+            ros install trivial-exe-test
       - run:
           name: run-sbcl
           command: ros -- test.ros
